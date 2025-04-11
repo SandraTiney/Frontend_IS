@@ -1,0 +1,239 @@
+/* nuevo-empleado.css */
+
+/* Estilo general del contenedor */
+.nuevo-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Estilo para las categorías */
+.nueva-categoria-btn {
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nueva-categoria-btn.active {
+    background-color: #ff6347;
+}
+
+/* Estilo para los platillos */
+.nuevo-platillo {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo para el resumen del pedido */
+.nuevo-resumen {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+
+/* Estilo para el total */
+.nuevo-total {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Estilo para el botón de finalizar */
+.nuevo-finalizar-btn {
+    padding: 10px 15px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nuevo-finalizar-btn:hover {
+    background-color: #ff3d00;
+}
+
+/* Estilo para la ventana flotante */
+.nueva-ventana-flotante {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nueva-ventana-contenido {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón para agregar al pedido */
+.nuevo-agregar-btn {
+    padding: 10px 15px;
+    background-color: #ff7f50; /* Color naranja */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nuevo-agregar-btn:hover {
+    background-color: #ff6347; /* Color naranja más oscuro al hacer hover */
+}
+
+/* Estilo para los botones de cantidad (+ y -) */
+.cantidad-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cantidad-control .menos-btn,
+.cantidad-control .mas-btn {
+    padding: 8px 12px;
+    background-color: #ff7f50; /* Color naranja */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cantidad-control .menos-btn:hover,
+.cantidad-control .mas-btn:hover {
+    background-color: #ff6347; /* Color naranja más oscuro en hover */
+}
+
+/* Estilo para la cantidad en el medio */
+.cantidad-control span {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.info-frame {
+    border: 1px solid #ccc; /* Cambia el color según tu diseño */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px; /* Opcional: bordes redondeados */
+    background-color: #f9f9f9; /* Cambia el color de fondo según tu diseño */
+}
+
+.continuar-btn {
+    background-color: #ff9900; /* Cambia el color según tu diseño */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.continuar-btn:hover {
+    background-color: #cc7a00; /* Color de fondo al pasar el ratón */
+}
+
+.header-informacion {
+    background-color: #f8f9fa; /* Color de fondo suave */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espacio inferior para separar del contenido siguiente */
+}
+
+.titulo-generar-orden {
+    font-size: 24px; /* Tamaño de fuente grande para el título */
+    color: #333; /* Color del texto */
+    margin-bottom: 15px; /* Espacio debajo del título */
+    text-align: center; /* Centrar el título */
+}
+
+.info-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar contenido horizontalmente */
+}
+
+.info-frame select,
+.info-frame button {
+    width: 100%; /* Hacer que los select y button ocupen el ancho completo */
+    max-width: 300px; /* Ancho máximo */
+    margin: 10px 0; /* Espacio vertical entre elementos */
+    padding: 10px; /* Relleno interno */
+    border: 1px solid #ccc; /* Borde suave */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente para select y button */
+    transition: border-color 0.3s; /* Transición para el borde */
+}
+
+.info-frame select:focus,
+.info-frame button:hover {
+    border-color: #007bff; /* Cambio de color en focus y hover */
+    outline: none; /* Quitar el contorno por defecto */
+}
+
+.resumen-platillo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.check-btn {
+    background-color: #FFA500; /* Color anaranjado inicial */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Suaviza la transición */
+}
+
+.check-btn:hover {
+    background-color: #499747;
+}
+
+.delete-btn {
+    background-color: #eb7d00; /* Rojo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #740e0e; /* Rojo oscuro al pasar el mouse */
+}
+
+.nuevo-finalizar-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}

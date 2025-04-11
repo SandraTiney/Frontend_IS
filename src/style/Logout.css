@@ -1,0 +1,27 @@
+/* Logout.css */
+.logout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: #fff5e6; /* Fondo suave naranja */
+}
+
+.logout-message {
+    background-color: #ffcc80; /* Fondo del mensaje de confirmación */
+    border: 1px solid #ff9800; /* Borde más oscuro */
+    border-radius: 8px; /* Esquinas redondeadas */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.swal2-confirm {
+    background-color: #ff9800; /* Botón de confirmación en naranja */
+    color: white; /* Texto blanco */
+}
+
+.swal2-cancel {
+    background-color: #ff5722; /* Botón de cancelar en un tono más oscuro */
+    color: white; /* Texto blanco */
+}

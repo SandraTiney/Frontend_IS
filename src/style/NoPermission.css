@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.no-permission-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #fafafa;
+  color: #333;
+  padding: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.permission-content {
+  max-width: 500px;
+  text-align: center;
+  padding: 40px;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  transition: transform 0.3s;
+  cursor: default;
+}
+
+.permission-content:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.permission-title {
+  font-size: 48px;
+  font-weight: 600;
+  color: #ff8a33;
+  margin-bottom: 15px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.permission-message {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.lock-icon {
+  font-size: 80px;
+  color: #ff8a33;
+  margin-bottom: 20px;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .permission-content {
+    padding: 30px;
+  }
+
+  .permission-title {
+    font-size: 36px;
+  }
+
+  .permission-message {
+    font-size: 18px;
+  }
+
+  .lock-icon {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .permission-content {
+    padding: 20px;
+  }
+
+  .permission-title {
+    font-size: 28px;
+  }
+
+  .permission-message {
+    font-size: 16px;
+  }
+
+  .lock-icon {
+    font-size: 50px;
+  }
+}

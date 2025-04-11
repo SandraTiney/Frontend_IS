@@ -1,0 +1,257 @@
+/* empleado.css */
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  transition: background-color 0.3s;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.card {
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card-header {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  background-color: #FF7B00; /* Fondo de encabezado */
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.card-content, .card-footer {
+  padding: 20px;
+}
+
+/* Form Styles */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Asegura que el grupo ocupe todo el ancho */
+}
+
+.form-label {
+  font-weight: 600;
+  color: #FF7B00;
+  margin-bottom: 8px;
+}
+
+/* Input y Select con solo borde inferior y sin color de fondo */
+.form-input,
+.input-group select {
+  width: 100%;
+  padding: 10px 0; /* Ajusta el padding superior e inferior */
+  border: none;
+  border-bottom: 2px solid #ccc; /* Solo muestra el borde inferior */
+  background-color: transparent; /* Sin color de fondo */
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus,
+.input-group select:focus {
+  outline: none;
+  border-bottom-color: #FF7B00; /* Cambia el color del borde inferior en foco */
+  box-shadow: 0 2px 5px rgba(255, 123, 0, 0.3); /* Sombra para resaltar el foco */
+}
+
+/* Estilos para los iconos */
+.input-group .input-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #BDBDBD;
+}
+
+/* Button Styles */
+.btn {
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #FF7B00; /* Botón primario */
+}
+
+.btn-primary:hover {
+  background-color: #e65c00;
+}
+
+.btn-success {
+  background-color: #FF7B00; /* Botón de éxito */
+}
+
+.btn-success:hover {
+  background-color: #e65c00;
+}
+
+.btn-warning {
+  background-color: #ffc107; /* Botón de advertencia */
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Botón de peligro */
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-light {
+  background-color: #FF7B00; /* Botón claro */
+  color: #333;
+}
+
+.btn-light.active {
+  background-color: #FF7B00; /* Botón activo */
+  color: #fff;
+}
+
+/* Search Styles */
+.search-container {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  width: 38%;
+}
+
+.plat {
+  text-align: left;
+}
+
+.search-input {
+  width: 100%; /* Hacer que el input de búsqueda ocupe todo el ancho */
+  padding: 10px 0; /* Ajusta el padding superior e inferior */
+  border: none;
+  border-bottom: 2px solid #ccc; /* Solo borde inferior */
+  background-color: transparent; /* Sin color de fondo */
+  font-size: 16px;
+  color: #333;
+  margin-right: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+  border-bottom-color: #FF7B00;
+  box-shadow: 0 2px 5px rgba(255, 111, 0, 0.5); /* Sombra para resaltar el foco */
+  outline: none;
+}
+
+.search-icon {
+  color: #333;
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.table th {
+  background-color: #FF7B00; /* Encabezado de tabla */
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.table tr:nth-child(even) td {
+  background-color: #f9f9f9;
+}
+
+.table tr:hover td {
+  background-color: #f1f1f1;
+}
+
+.table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination .btn {
+  margin: 0 5px;
+}
+
+.pagination .page-item .page-link {
+  color: #FF7B00; /* Enlace de paginación */
+  border: none;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: #FF7B00; /* Fondo de enlace de paginación en hover */
+  color: #fff;
+}
+
+/* Form Control Focus */
+.form-control:focus {
+  border-color: #FF7B00; /* Color de borde en foco */
+  box-shadow: 0 0 5px rgba(255, 123, 0, 0.5);
+}
+
+/* Estilos generales */
+.btn,
+.form-input,
+.input-group select,
+.search-input {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

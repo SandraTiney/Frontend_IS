@@ -1,0 +1,55 @@
+/* Botón de despliegue en pantallas pequeñas */
+.sidebar-toggle-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #FF6700;
+    color: white;
+    z-index: 1050;
+    border: none;
+    padding: 8px;
+    border-radius: 20%;
+    cursor: pointer;
+}
+
+/* Fondo oscuro detrás del sidebar */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    display: block;
+}
+
+/* Sidebar que se despliega encima del contenido */
+.sidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100vh;
+    background-color: #FF6700;
+    color: white;
+    z-index: 1051;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.sidebar-container.open {
+    transform: translateX(0);
+}
+
+/* Estilos para pantallas medianas y grandes */
+@media (min-width: 768px) {
+    .sidebar-container {
+        position: relative;
+        transform: translateX(0);
+        display: block;
+    }
+    .sidebar-toggle-btn, .sidebar-overlay {
+        display: none;
+    }
+}

@@ -1,0 +1,51 @@
+.ordenes-container {
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.ordenes-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FF6700;
+}
+
+.ordenes-table {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.ordenes-table-header {
+    background-color: #FF6700;
+    color: white;
+}
+
+.ordenes-table th, .ordenes-table td {
+    text-align: center;
+    padding: 15px;
+}
+
+.ordenes-table td ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.entregado-btn {
+    background-color: #FF6700;
+    border-color: #FF6700;
+    color: white;
+}
+
+.entregado-btn:hover {
+    background-color: #e65c00;
+    border-color: #e65c00;
+}
+
+.entregado-btn:focus {
+    box-shadow: 0 0 5px 2px rgba(255, 103, 0, 0.5);
+}
+
+
+.entregado-btn:disabled {
+    background-color: #FF9E3B;
+    color: #ddd;
+}

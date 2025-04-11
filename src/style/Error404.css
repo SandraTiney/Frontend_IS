@@ -1,0 +1,91 @@
+/* Importar fuente Poppins para mejor tipografía */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.error-404-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.error-404-container:hover {
+    background-color: #f4f4f4;
+}
+
+.error-content {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.2s;
+}
+
+.error-content:hover {
+    transform: scale(1.02);
+}
+
+.error-title {
+    font-size: 80px;
+    font-weight: 600;
+    color: #ff8a33;
+    margin-bottom: 10px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.error-message {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.fork-icon {
+    font-size: 60px;
+    color: #ff8a33;
+    margin-bottom: 15px;
+    animation: shake 1s ease-in-out infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+.redirect-button {
+    background-color: #ff8a33;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.redirect-button:hover {
+    background-color: #ff8a33;
+    transform: scale(1.05);
+}

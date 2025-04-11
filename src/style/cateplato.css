@@ -1,0 +1,216 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    transition: background-color 0.3s;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  
+  .card-header {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #FF7B00; /* Color de texto actualizado */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    background-color: #FF7B00; /* Fondo de encabezado */
+    color: #fff;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .card-content, .card-footer {
+    padding: 20px;
+  }
+  
+  /* Form Styles */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Asegura que el grupo ocupe todo el ancho */
+  }
+  
+  .form-label {
+    font-weight: 600;
+    color: #FF7B00;
+    margin-bottom: 8px;
+  }
+
+  .Cat{
+    text-align: left;
+  }
+  
+  /* Input con fondo transparente y línea inferior */
+  .form-control {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin bordes */
+    border-bottom: 2px solid #FF7B00; /* Línea en la parte inferior */
+    border-radius: 0; /* Sin bordes redondeados */
+    padding: 10px 0; /* Ajusta el padding superior e inferior */
+    font-size: 16px;
+    color: #333; /* Color del texto */
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    outline: none; /* Quitar borde azul predeterminado en foco */
+    border-bottom-color: #FF7B00; /* Cambia el color de la línea al obtener el foco */
+    box-shadow: none; /* Sin sombra en foco */
+  }
+  
+  /* Button Styles */
+  .btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #FF7B00;
+    align-items: center;
+  }
+  
+  .btn-primary:hover {
+    background-color: #e65c00;
+  }
+  
+  .btn-success {
+    background-color: #FF7B00; /* Botón de éxito en color naranja */
+  }
+  
+  .btn-success:hover {
+    background-color: #e65c00;
+  }
+  
+  .btn-info {
+    background-color: #17a2b8; /* Botón de información */
+  }
+  
+  .btn-info:hover {
+    background-color: #138496;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e0a800;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  /* Search Styles */
+  .search-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .search-icon {
+    color: #333;
+  }
+  
+  /* Table Styles */
+  .table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .table th {
+    background-color: #FF7B00; /* Encabezado de tabla */
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Pagination Styles */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination .btn {
+    margin: 0 5px;
+  }
+  
+  .pagination .page-item .page-link {
+    color: #FF7B00;
+    border: none;
+  }
+  
+  .pagination .page-item .page-link:hover {
+    background-color: #FF7B00;
+    color: #fff;
+  }
+  
+  /* Form Control Focus */
+  .form-control:focus {
+    border-color: #FF7B00;
+    box-shadow: 0 0 5px rgba(255, 123, 0, 0.5);
+  }
+  

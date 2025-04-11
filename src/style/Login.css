@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Estilo base */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo y contenedor principal */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Contenedor general del login */
+.login-content {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.login-content:hover {
+    transform: scale(1.01);
+}
+
+/* Estilo para el lado de la imagen */
+.image-side {
+    flex: 1;
+    display: none;
+}
+
+.food-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Contenedor del formulario de login */
+.login-box {
+    flex: 1;
+    max-width: 500px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fdfdfd;
+}
+
+/* Cabecera y logo con animación */
+.login-header {
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease;
+}
+
+.login-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Título y bienvenida */
+.login-title {
+    color: #FF7B00;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.login-welcome {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0 20px;
+    line-height: 1.6;
+    max-width: 400px; /* Ajusta este valor para controlar el ancho del texto */
+    width: 100%;
+}
+
+/* Estilo para el formulario */
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+    max-width: 400px; /* Ajusta el ancho de los inputs */
+}
+
+/* Etiqueta y entrada */
+.form-label {
+    font-size: 14px;
+    color: #FF7B00;
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.input-custom {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    /*width: 100%; /* Ajusta al 100% del contenedor */
+    width: 370px;
+    height: 50;
+    font-size: 15px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.input-custom::placeholder {
+    color: #aaa;
+    font-size: 14px;
+    text-align: left;
+}
+
+.input-custom:focus {
+    border-color: #FF7B00;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 123, 0, 0.5);
+}
+
+/* Botón de login */
+.btn-login {
+    background-color: #FF7B00;
+    color: #fff;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    max-width: 400px; /* Ajusta el ancho del botón */
+}
+
+.btn-login:hover {
+    background-color: #ff8a33;
+}
+
+/* Mensaje de error */
+.alert {
+    font-size: 14px;
+    margin-top: 15px;
+    text-align: center;
+    color: #d9534f;
+    font-weight: 500;
+}
+
+/* Mensaje de términos y condiciones */
+.inicio {
+    font-size: 12px;
+    color: #999;
+    margin-top: 25px;
+    display: block;
+    font-weight: 400;
+    max-width: 400px; /* Ajusta el ancho para alinearlo */
+}
+
+/* Estilos responsivos */
+@media (min-width: 768px) {
+    .image-side {
+        display: block;
+        flex: 1;
+    }
+
+    .login-box {
+        flex: 1;
+        max-width: 500px;
+    }
+}
