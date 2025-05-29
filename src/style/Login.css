@@ -21,6 +21,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     padding: 20px;
+    max-height: 80vh !important; /* Cambios efectuados Anthony Chan*/
 }
 
 /* Contenedor general del login */
@@ -54,7 +55,7 @@ body {
 /* Contenedor del formulario de login */
 .login-box {
     flex: 1;
-    max-width: 500px;
+    /*max-width: 500px;*/
     padding: 40px;
     display: flex;
     flex-direction: column;
@@ -194,6 +195,6 @@ body {
 
     .login-box {
         flex: 1;
-        max-width: 500px;
+        /*max-width: 500px;*/
     }
 }

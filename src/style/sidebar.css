@@ -52,4 +52,8 @@
     .sidebar-toggle-btn, .sidebar-overlay {
         display: none;
     }
+    .d-md-block {
+        display: block !important;
+        height: fit-content !important; /* Cambios efectuados Anthony Chan */
+    }
 }
