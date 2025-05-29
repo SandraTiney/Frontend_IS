@@ -2,12 +2,12 @@ import "../style/empleado.css";
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Swal from "sweetalert2";
 import { AllowedAccess } from 'react-permission-role';
 import NoPermission from "./NoPermission";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Orden() {
-    // Hooks de Orden
     const [mesaId, setMesaId] = useState("");
     const [fechaOrden, setFechaOrden] = useState("");
     const [total, setTotal] = useState("");
@@ -19,7 +19,6 @@ function Orden() {
     const [editarOrden, setEditarOrden] = useState(false);
     const [idOrden, setIdOrden] = useState("");
 
-    // Cargar usuarios disponibles
     useEffect(() => {
         const obtenerUsuarios = async () => {
             try {
@@ -33,7 +32,6 @@ function Orden() {
         obtenerUsuarios();
     }, []);
 
-    // Cargar mesas disponibles
     useEffect(() => {
         const obtenerMesas = async () => {
             try {
@@ -47,7 +45,6 @@ function Orden() {
         obtenerMesas();
     }, []);
 
-    // Guardar nueva orden
     const addOrden = async () => {
         try {
             await Axios.post("http://localhost:3001/orden/guardar", {
@@ -58,23 +55,13 @@ function Orden() {
             });
             await listaOrdenes();
             limpiarCampos();
-            Swal.fire({
-                title: "<strong>Orden registrada!</strong>",
-                html: "<i>Orden guardada exitosamente</i>",
-                icon: "success",
-                timer: 3000,
-            });
+            toast.success("✅ Orden guardada exitosamente");
         } catch (error) {
             console.error("Error al registrar la orden:", error);
-            Swal.fire({
-                title: "Error",
-                text: "No se pudo registrar la orden.",
-                icon: "error",
-            });
+            toast.error("❌ No se pudo registrar la orden.");
         }
     };
 
-    // Actualizar orden
     const updateOrden = async () => {
         try {
             await Axios.put("http://localhost:3001/orden/actualizar", {
@@ -86,23 +73,13 @@ function Orden() {
             });
             await listaOrdenes();
             limpiarCampos();
-            Swal.fire({
-                title: "<strong>Orden actualizada!</strong>",
-                html: "<i>Orden actualizada exitosamente</i>",
-                icon: "success",
-                timer: 2500,
-            });
+            toast.success("✅ Orden actualizada exitosamente");
         } catch (error) {
             console.error("Error al actualizar la orden:", error);
-            Swal.fire({
-                title: "Error",
-                text: "No se pudo actualizar la orden.",
-                icon: "error",
-            });
+            toast.error("❌ No se pudo actualizar la orden.");
         }
     };
 
-    // Limpiar campos del formulario
     const limpiarCampos = () => {
         setIdUsuario("");
         setMesaId("");
@@ -112,7 +89,6 @@ function Orden() {
         setIdOrden("");
     };
 
-    // Editar orden
     const editarOrdenes = (orden) => {
         setEditarOrden(true);
         setIdUsuario(orden.id_usuario);
@@ -122,7 +98,6 @@ function Orden() {
         setIdOrden(orden.id_orden);
     };
 
-    // Listar todas las ordenes
     const listaOrdenes = async () => {
         try {
             const response = await Axios.get("http://localhost:3001/orden/listar");
@@ -139,11 +114,12 @@ function Orden() {
     return (
         <AllowedAccess 
             roles={["mesero"]} 
-            permissions="manage-users" /*manage-order*/
-            renderAuthFailed={<NoPermission/>}
+            permissions="manage-users"
+            renderAuthFailed={<NoPermission />}
             isLoading={<p>Cargando...</p>}
         >
             <div className="container">
+                
                 <div className="card text-center">
                     <div className="card-header">FORMULARIO CREAR ORDEN</div>
                     <div className="card-body">
@@ -173,7 +149,6 @@ function Orden() {
                             <span className="input-group-text">Fecha Orden: </span>
                             <input
                                 type="datetime-local"
-                                //className="form-control"
                                 value={fechaOrden}
                                 onChange={(e) => setFechaOrden(e.target.value)}
                             />
@@ -196,7 +171,7 @@ function Orden() {
                         )}
                     </div>
                 </div>
-                <table className="table table-striped">
+                <table className="table table-striped mt-4">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -226,6 +201,7 @@ function Orden() {
                         ))}
                     </tbody>
                 </table>
+                <ToastContainer position="top-center" autoClose={3000} />
             </div>
         </AllowedAccess>
     );

@@ -4,6 +4,7 @@ import '../style/Historial.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import Swal from 'sweetalert2';
 import { jsPDF } from 'jspdf';
+import logo from '../asset/img/miralago.jpg';
 
 const Historial = () => {
   const [selectedOrder, setSelectedOrder] = useState(null);
@@ -319,64 +320,110 @@ const handleGenerateInvoice = async (id_orden) => {
       }
     };
 */
-    const generatePDF = () => {
-      if (!selectedOrder || !selectedOrder.items) {
-        console.error("No hay datos de la orden seleccionada para generar el PDF.");
-        return;
-      }
+
+const generatePDF = () => {
+  if (!selectedOrder || !selectedOrder.items) {
+    console.error("No hay datos de la orden seleccionada para generar el PDF.");
+    return;
+  }
+
+  const doc = new jsPDF();
+  const pageWidth = doc.internal.pageSize.width;
+
+  // Función para formatear la fecha
+  const formatFechaHora = (fechaStr) => {
+    if (!fechaStr) return 'No especificada';
+    const fechaObj = new Date(fechaStr);
+    if (isNaN(fechaObj)) return 'Fecha inválida';
+
+    const pad = (n) => n < 10 ? '0' + n : n;
+
+    const dia = pad(fechaObj.getDate());
+    const mes = pad(fechaObj.getMonth() + 1);
+    const anio = fechaObj.getFullYear();
+
+    const hora = pad(fechaObj.getHours());
+    const minutos = pad(fechaObj.getMinutes());
+    const segundos = pad(fechaObj.getSeconds());
+
+    return `${dia}/${mes}/${anio} ${hora}:${minutos}:${segundos}`;
+  };
+
+  const img = new Image();
+  img.src = require('../asset/img/miralago.jpg');
+
+  img.onload = () => {
+    // Logo arriba derecha
+    doc.addImage(img, 'JPEG', pageWidth - 50, 10, 40, 20);
+
+    // Título sin "Factura"
+    doc.setFontSize(16);
+    doc.setTextColor(0, 0, 0);
+    doc.setFont("helvetica", "bold");
+    const title = 'Restaurante Miralago, Panajachel';
+    const titleWidth = doc.getTextWidth(title);
+    doc.text(title, (pageWidth - titleWidth) / 2, 35);
+
+    // Datos cliente y fecha alineados a la izquierda
+    doc.setFontSize(11);
+    doc.setFont("helvetica", "normal");
+    const fechaFormateada = formatFechaHora(selectedOrder.fechaOrden);
+    doc.text(`Fecha y hora: ${fechaFormateada}`, 10, 45);
+    doc.text(`NIT: ${customerData.nit_cliente || 'No especificado'}`, 10, 52);
+    // Nombre y apellido alineado a la izquierda, justo abajo del NIT
+    doc.text(`Nombre: ${customerData.nombre || ''} ${customerData.apellido || ''}`, 10, 59);
+    doc.text(`Dirección: ${customerData.direccion || 'No especificada'}`, 10, 66);
+
+    // Encabezados tabla
+    let startY = 80;
+    doc.setFont("helvetica", "bold");
+    doc.setFillColor(230, 230, 230);
+    doc.rect(10, startY, pageWidth - 20, 10, 'F');
+    doc.text('Descripción', 12, startY + 7);
+    doc.text('Cantidad', 100, startY + 7);
+    doc.text('Precio', 135, startY + 7);
+    doc.text('Subtotal', 165, startY + 7);
+
+    // Cuerpo de tabla
+    doc.setFont("helvetica", "normal");
+    let currentY = startY + 15;
+    let totalOrden = 0;
+
+    selectedOrder.items.forEach((item) => {
+      const itemName = item.nombre || item.descripcion || 'Item sin nombre';
+      const itemQuantity = Number(item.cantidad) || 1;
+      const itemSubtotal = Number(item.subtotal) || 0;
+      const itemPrice = itemQuantity > 0 ? itemSubtotal / itemQuantity : 0;
+
+      // Línea inferior fila
+      doc.line(10, currentY + 3, pageWidth - 10, currentY + 3);
+
+      // Texto fila
+      doc.text(itemName, 12, currentY);
+      doc.text(`${itemQuantity}`, 100, currentY);
+      doc.text(`Q${itemPrice.toFixed(2)}`, 135, currentY);
+      doc.text(`Q${itemSubtotal.toFixed(2)}`, 165, currentY);
+
+      totalOrden += itemSubtotal;
+      currentY += 10;
+    });
+
+    // Total
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(12);
+    doc.text(`Total de la Orden: Q ${totalOrden.toFixed(2)}`, 10, currentY + 10);
+
+    // Guardar PDF
+    doc.save('Factura_Orden.pdf');
+  };
+};
+
+
+
+
+
     
-      const doc = new jsPDF();
-      
-      // Configuración de fuente y título
-      doc.setFontSize(12);
-      const restaurantText = 'Restaurante Miralago, Panajachel';
-      const pageWidth = doc.internal.pageSize.width;
-      const textWidth = doc.getTextWidth(restaurantText);
-      const centeredX = (pageWidth - textWidth) / 2;
-      doc.text(restaurantText, centeredX, 20);
-  
-  doc.setFont("helvetica", "normal"); // Regresar a la fuente normal
-  doc.text(`Fecha y hora: ${selectedOrder.fechaOrden || 'No especificada'}`, 10, 30);
-  doc.text(`NIT: ${customerData.nit_cliente || 'No especificado'}`, 10, 40);
-  doc.text(`Nombre: ${customerData.nombre || ''} ${customerData.apellido || ''}`, 70, 40);
-  doc.text(`Dirección: ${customerData.direccion || 'No especificada'}`, 10, 50);
-  
-  // Listado de Items
-  doc.setFont("helvetica", "bold"); // Encabezado en negrita para "Detalle Factura"
-  doc.text('Detalle Factura:', 10, 60);
-  doc.text('Descripcion:', 10, 70);
-  doc.text('Cantidad:', 100, 70);
-  doc.text('Precio:', 130, 70);
-  doc.text('Subtotal:', 160, 70);
 
-    doc.setFont("helvetica", "normal"); // Regresar a la fuente normal
-        // Listado de Items
-  let totalOrden = 0;
-  selectedOrder.items.forEach((item, index) => {
-    const itemName = item.nombre || item.descripcion || 'Item sin nombre';
-    const itemQuantity = item.cantidad || 1;
-    const itemSubtotal = item.subtotal;
-    const itemPrice = itemQuantity > 0 ? (itemSubtotal / itemQuantity) : 0;
-
-    // Alinear cada campo de ítem en su columna respectiva
-    const rowY = 80 + index * 10;
-    doc.text(itemName, 10, rowY);               // Descripción
-    doc.text(`${itemQuantity}`, 100, rowY);     // Cantidad
-    doc.text(`Q${itemPrice}`, 130, rowY);       // Precio
-    doc.text(`Q${itemSubtotal}`, 160, rowY);    // Subtotal
-
-    totalOrden += Number(itemSubtotal);; // Acumular el subtotal en el total de la orden
-  });
-
-  // Mostrar el total de la orden después de la lista de ítems
-  let itemsEndPosition = 80 + selectedOrder.items.length * 10;
-  doc.text(`Total de la Orden: Q ${totalOrden}`, 10, itemsEndPosition + 10);
-
-  doc.save('Factura_Orden.pdf');
-    };
-    
-    
-    
 
 
   return (
